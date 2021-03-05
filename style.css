@@ -1,5 +1,123 @@
+/*
+ * CoderAcademy - T1A2 Portfolio
+ * Author: Anthony Beck
+ */
 * {
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+  background: url("./img/bg.jpg") repeat fixed;
+}
+
+h1, h2, h3 {
+  font-family: "Lora", serif;
+  font-weight: normal;
+  color: #c0362c;
+}
+
+h4, h5, h6 {
+  font-weight: normal;
+}
+
+a {
+  color: #c0362c;
+}
+a:hover {
+  color: #faa;
+}
+
+header, main, footer {
+  width: 100%;
+}
+
+main {
+  flex: auto;
+}
+
+main > article {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #f8f8ff;
+  padding: 1em 2em;
+  box-shadow: 3px 3px 6px rgba(99, 99, 99, 0.33);
+}
+
+article > section {
+  margin: 2em 0;
+}
+
+header, footer {
+  display: flex;
+  align-items: baseline;
+  background-color: #232527;
+  color: #f8f8ff;
+}
+
+header {
+  height: 100%;
+  padding: 0 1em;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+header nav {
+  width: 100%;
+  display: none;
+  flex-flow: column nowrap;
+}
+header nav .active {
+  color: #5a4fcf;
+}
+header #mobile-menu-button {
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 1rem;
+}
+header #header-navbar a {
+  text-align: right;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-visibility {
+  display: flex;
+}
+
+footer {
+  flex-flow: column;
+  align-self: flex-end;
+  padding: 1em;
+}
+
+@media only screen and (min-width: 451px) {
+  header {
+    justify-content: space-around;
+  }
+  header nav {
+    display: flex;
+    flex-flow: row nowrap;
+    width: auto;
+  }
+  header #mobile-menu-button {
+    display: none;
+  }
+}
+@media only screen and (min-width: 701px) {
+  footer {
+    justify-content: center;
+    flex-flow: row nowrap;
+  }
+  footer section {
+    padding: 0 2rem;
+  }
+  footer section:first-child {
+    border-right: 2px solid #f8f8ff;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
