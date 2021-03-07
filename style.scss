@@ -127,6 +127,40 @@ footer {
     padding: 1em;
 }
 
+// Blog
+.blog-preview {
+    border-bottom: 1px solid $color-dark;
+}
+
+// Portfolio
+#portfolio-columns {
+    display: flex;
+    flex-flow: row wrap;
+}
+#portfolio-skills {
+    width: 100%;
+    #skill-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 1em;
+
+        .skill {
+            i { font-size: 5em; }
+            text-align: center;
+            filter: grayscale(1);
+            transition: filter .2s ease-in-out;
+            &:hover {
+                filter: none;
+            }
+        }
+    }
+}
+
+#portfolio-projects {
+    width: 100%;
+}
+
 // Media queries
 // Mobile Only
 @media only screen and (max-width: 450px) {
@@ -168,5 +202,13 @@ footer {
                 border-right: 2px solid $color-light;
             }
         }
+    }
+
+    #portfolio-skills {
+        width: 50%;
+    }
+
+    #portfolio-projects {
+        width: 50%;
     }
 }

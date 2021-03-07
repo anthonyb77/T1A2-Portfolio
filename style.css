@@ -94,6 +94,40 @@ footer {
   padding: 1em;
 }
 
+.blog-preview {
+  border-bottom: 1px solid #232527;
+}
+
+#portfolio-columns {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#portfolio-skills {
+  width: 100%;
+}
+#portfolio-skills #skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1em;
+}
+#portfolio-skills #skill-grid .skill {
+  text-align: center;
+  filter: grayscale(1);
+  transition: filter 0.2s ease-in-out;
+}
+#portfolio-skills #skill-grid .skill i {
+  font-size: 5em;
+}
+#portfolio-skills #skill-grid .skill:hover {
+  filter: none;
+}
+
+#portfolio-projects {
+  width: 100%;
+}
+
 @media only screen and (min-width: 451px) {
   header {
     justify-content: space-around;
@@ -117,6 +151,14 @@ footer {
   }
   footer section:first-child {
     border-right: 2px solid #f8f8ff;
+  }
+
+  #portfolio-skills {
+    width: 50%;
+  }
+
+  #portfolio-projects {
+    width: 50%;
   }
 }
 
