@@ -1,6 +1,7 @@
 /*
- * CoderAcademy - T1A2 Portfolio
- * Author: Anthony Beck
+ *
+ *
+ *
  */
 * {
   box-sizing: border-box;
@@ -8,49 +9,32 @@
 
 body {
   font-family: "Quicksand", sans-serif;
+  color: #333;
   display: flex;
   flex-flow: column nowrap;
   min-height: 100vh;
   margin: 0;
-  color: #333;
   background: url("./img/bg.jpg") repeat fixed;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Lora", serif;
   font-weight: normal;
-  color: #c0362c;
 }
 
-h4, h5, h6 {
-  font-weight: normal;
+h1, h2, h3 {
+  color: #c0362c;
 }
 
 a {
   color: #c0362c;
 }
 a:hover {
-  color: #faa;
+  color: #da8a67;
 }
 
 header, main, footer {
   width: 100%;
-}
-
-main {
-  flex: auto;
-}
-
-main > article {
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: #f8f8ff;
-  padding: 1em 2em;
-  box-shadow: 3px 3px 6px rgba(99, 99, 99, 0.33);
-}
-
-article > section {
-  margin: 2em 0;
 }
 
 header, footer {
@@ -61,74 +45,87 @@ header, footer {
 }
 
 header {
-  height: 100%;
-  padding: 0 1em;
   flex-flow: row wrap;
   justify-content: space-between;
-}
-header nav {
-  width: 100%;
-  display: none;
-  flex-flow: column nowrap;
-}
-header nav .active {
-  color: #5a4fcf;
+  height: 100%;
+  padding: 0 1em;
 }
 header #mobile-menu-button {
-  font-size: 2rem;
   text-decoration: none;
-  padding: 1rem;
+  font-size: 2em;
+  padding: 1em;
 }
-header #header-navbar a {
-  text-align: right;
-  padding: 0.5rem 1rem;
-}
-
-.navbar-visibility {
+header nav.navbar-toggle {
   display: flex;
+}
+header nav {
+  display: none;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+header nav a {
+  text-align: right;
+  font-size: 1.2em;
+  padding: 0.5em 1em;
+}
+header nav a.active {
+  color: #5a4fcf;
 }
 
 footer {
-  flex-flow: column;
+  flex-flow: column nowrap;
   align-self: flex-end;
+  justify-content: space-between;
   padding: 1em;
 }
 
-.blog-preview {
-  border-bottom: 1px solid #232527;
+main {
+  flex: auto;
+  max-width: 960px;
+  margin: auto;
+  background-color: #f8f8ff;
+  padding: 1em 2em;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-#portfolio-columns {
+#site-title:hover {
+  animation: hue-cycle 0.67s linear infinite;
+}
+
+#portfolio-flex {
   display: flex;
   flex-flow: row wrap;
 }
-
-#portfolio-skills {
+#portfolio-flex #portfolio-projects {
   width: 100%;
 }
-#portfolio-skills #skill-grid {
+#portfolio-flex #portfolio-skills {
+  width: 100%;
+}
+#portfolio-flex #portfolio-skills #skill-icon-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
   gap: 1em;
 }
-#portfolio-skills #skill-grid .skill {
+#portfolio-flex #portfolio-skills #skill-icon-grid .skill-icon {
   text-align: center;
-  filter: grayscale(1);
-  transition: filter 0.2s ease-in-out;
-}
-#portfolio-skills #skill-grid .skill i {
   font-size: 5em;
+  filter: grayscale(1);
+  animation: grayscale-breathe 1s ease-in forwards;
+  animation-delay: 0.6s;
 }
-#portfolio-skills #skill-grid .skill:hover {
-  filter: none;
+#portfolio-flex #portfolio-skills #skill-icon-grid #skill-css:hover {
+  animation: grayscale-breathe 3s ease-in forwards, spin 0.4s linear infinite, hue-cycle 1s linear infinite;
 }
 
-#portfolio-projects {
-  width: 100%;
+.blog-image {
+  margin: 1em;
+  height: auto;
+  width: auto;
+  max-width: 33vw;
 }
 
-@media only screen and (min-width: 451px) {
+@media only screen and (min-width: 600px) {
   header {
     justify-content: space-around;
   }
@@ -139,26 +136,47 @@ footer {
   }
   header #mobile-menu-button {
     display: none;
+    border: 5px solid #0f0;
   }
 }
-@media only screen and (min-width: 701px) {
+@media only screen and (min-width: 960px) {
+  #portfolio-flex #portfolio-skills, #portfolio-flex #portfolio-projects {
+    width: 50%;
+  }
+
   footer {
     justify-content: center;
     flex-flow: row nowrap;
   }
   footer section {
-    padding: 0 2rem;
+    padding: 0 2em;
   }
   footer section:first-child {
     border-right: 2px solid #f8f8ff;
   }
-
-  #portfolio-skills {
-    width: 50%;
+}
+@keyframes hue-cycle {
+  from {
+    filter: hue-rotate(0deg);
   }
-
-  #portfolio-projects {
-    width: 50%;
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes grayscale-breathe {
+  from {
+    filter: grayscale(1);
+  }
+  to {
+    filter: grayscale(0);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 

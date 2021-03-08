@@ -1,214 +1,258 @@
 /*
- * CoderAcademy - T1A2 Portfolio
- * Author: Anthony Beck
+ *
+ *
+ *
  */
 
-// SASS variables
+// variables
+// theme colors
 $color-primary: #c0362c;
-$color-link: $color-primary;
-$color-secondary: #faa;
+$color-secondary: #da8a67;
 $color-accent: #5a4fcf;
 $color-dark: #232527;
 $color-light: #f8f8ff;
-$color-font-dark: #333;
-$color-font-light: #f8f8ff;
+$color-on-dark: #f8f8ff;
+$color-on-light: #333;
 
-$container-max-width: 900px;
+// maximum width of content container
+$container-max-width: 960px;
 
-// Sizing for layout consistency
-* { 
+// responsive breakpoints
+$breakpoint-desktop: 960px;
+$breakpoint-tablet: 600px;
+$breakpoint-mobile: 400px;
+
+// fonts
+$font-heading: "Lora", serif;
+$font-body: "Quicksand", sans-serif;
+
+* {
+    // consistency of sizing.
     box-sizing: border-box;
 }
 
-// Base layout and typography
 body {
-    font-family: 'Quicksand', sans-serif;
+    // font for most content..
+    font-family: $font-body;
+    // normal text color
+    color: $color-on-light;
 
+    // flexbox layout, columns for the sections we will have: header, main, footer
     display: flex;
     flex-flow: column nowrap;
-    // justify-content: space-between;
-
+    // minimum height of body to keep the footer on the bottom of the display.
     min-height: 100vh;
-    margin: 0;
 
-    color: $color-font-dark;
-    background: url('./img/bg.jpg') repeat fixed;
+    margin: 0;
+    // subtle pattern background.
+    background: url("./img/bg.jpg") repeat fixed;
 }
 
-h1, h2, h3 {
-    font-family: 'Lora', serif;
+// headings font and style.
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-heading;
     font-weight: normal;
+}
 
+// larger headings are coloured.
+h1, h2, h3 {
     color: $color-primary;
 }
 
-h4, h5, h6 {
-    font-weight: normal;
-}
-
+// change link style and hover color.
 a {
-    color: $color-link;
+    color: $color-primary;
     &:hover {
         color: $color-secondary;
     }
 }
 
-// sections
 header, main, footer {
+    // full width each main element.
     width: 100%;
 }
 
-main {
-    flex: auto;
-}
-
-main > article {
-    max-width: $container-max-width;
-    margin: 0 auto;
-
-    background-color: $color-light;
-
-    padding: 1em 2em;
-    box-shadow: 3px 3px 6px rgba(99, 99, 99, 0.33);
-}
-
-article > section {
-    margin: 2em 0;
-}
-
 header, footer {
+    // flex for layout inside these containers.
     display: flex;
     align-items: baseline;
 
     background-color: $color-dark;
-    color: $color-font-light;
+    color: $color-on-dark;
 }
 
 header {
-    height: 100%;
-    padding: 0 1em;
-
     flex-flow: row wrap;
     justify-content: space-between;
 
-    nav {
-        width: 100%;
+    height: 100%;
+    padding: 0 1em;
 
+    // hamburger mobile button.
+    #mobile-menu-button {
+        text-decoration: none;
+        font-size: 2em;
+        padding: 1em;
+    }
+
+    nav.navbar-toggle {
+        // display the navbar with this class.
+        display: flex;
+    }
+
+    nav {
+        // hide on mobile. we'll use `display: flex` to show.
         display: none;
+
         flex-flow: column nowrap;
 
-        .active {
-            color: $color-accent;
-        }
-    }
+        // full width.
+        width: 100%;
 
-    #mobile-menu-button {
-        font-size: 2rem;
-        text-decoration: none;
-        padding: 1rem;
-    }
-
-    #header-navbar {
+        // navigation links.
         a {
             text-align: right;
-            padding: .5rem 1rem;
-        }
-    }
-}
+            font-size: 1.2em;
+            padding: 0.5em 1em;
 
-.navbar-visibility {
-    display: flex;
-}
-
-footer {
-    flex-flow: column;
-    
-    align-self: flex-end;
-    padding: 1em;
-}
-
-// Blog
-.blog-preview {
-    border-bottom: 1px solid $color-dark;
-}
-
-// Portfolio
-#portfolio-columns {
-    display: flex;
-    flex-flow: row wrap;
-}
-#portfolio-skills {
-    width: 100%;
-    #skill-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
-        gap: 1em;
-
-        .skill {
-            i { font-size: 5em; }
-            text-align: center;
-            filter: grayscale(1);
-            transition: filter .2s ease-in-out;
-            &:hover {
-                filter: none;
+            // link of the current page are highlighted.
+            &.active {
+                color: $color-accent;
             }
         }
     }
 }
 
-#portfolio-projects {
-    width: 100%;
+footer {
+    flex-flow: column nowrap;
+    align-self: flex-end;
+    justify-content: space-between;
+
+    padding: 1em
 }
 
-// Media queries
-// Mobile Only
-@media only screen and (max-width: 450px) {
-    // The base style covers this, mobile first design.
+main {
+    // main content flex to fill available space.
+    flex: auto;
+
+    // container layout, maximum width in center of the view.
+    max-width: $container-max-width;
+    margin: auto;
+
+    background-color: $color-light;
+
+    padding: 1em 2em;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-// Tablet and Desktop
-@media only screen and (min-width: 451px) {
+#site-title:hover {
+    // just for fun.
+    animation: hue-cycle .67s linear infinite;
+}
+
+// page specific
+// portfolio
+#portfolio-flex {
+    display: flex;
+    flex-flow: row wrap;
+
+    #portfolio-projects {
+        width: 100%;
+    }
+    #portfolio-skills {
+        width: 100%;
+
+        #skill-icon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1em;
+            .skill-icon {
+                text-align: center;
+                font-size: 5em;
+
+                filter: grayscale(1);
+                animation: grayscale-breathe 1s ease-in forwards;
+                animation-delay: .6s;
+            }
+
+            // just for fun
+            #skill-css:hover {
+                animation: grayscale-breathe 3s ease-in forwards, spin .4s linear infinite, hue-cycle 1s linear infinite;
+            }
+        }
+    }
+}
+
+.blog-image {
+    // spacing from other elements and text.
+    margin: 1em;
+
+    height: auto;
+    width: auto;
+    max-width: 33vw;
+}
+
+// media queries
+// tablet only.
+@media only screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+
+}
+
+// tablet and desktop only.
+@media only screen and (min-width: $breakpoint-tablet) {
     header {
         justify-content: space-around;
 
         nav {
             display: flex;
             flex-flow: row nowrap;
+
             width: auto;
         }
 
         #mobile-menu-button {
             display: none;
+            border: 5px solid #0f0;
         }
     }
 }
 
-// Tablet Only
-@media only screen and (min-width: 451px) and (max-width: 700px) {
+// desktop only.
+@media only screen and (min-width: $breakpoint-desktop) {
+    #portfolio-flex  {
+        #portfolio-skills, #portfolio-projects {
+            width: 50%;
+        }
+    }
 
-}
-
-// Desktop Only
-@media only screen and (min-width: 701px) {
     footer {
         justify-content: center;
         flex-flow: row nowrap;
 
         section {
-            padding: 0 2rem;
-
+            padding: 0 2em;
             &:first-child {
-                border-right: 2px solid $color-light;
+                border-right: 2px solid $color-on-dark;
             }
         }
     }
+}
 
-    #portfolio-skills {
-        width: 50%;
-    }
+// animations.
+// shift colour hue through 360degrees.
+@keyframes hue-cycle {
+    from { filter: hue-rotate(0deg); }
+    to   { filter: hue-rotate(360deg); }
+}
 
-    #portfolio-projects {
-        width: 50%;
-    }
+// colour fade in from grayscale.
+@keyframes grayscale-breathe {
+    from { filter: grayscale(1); }
+    to   { filter: grayscale(0); }
+}
+
+// rotate through 360degrees.
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
