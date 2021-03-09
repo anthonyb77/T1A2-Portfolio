@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="/style.css">
 
     <!-- My Javascript -->
-    <script src="./app.js" defer></script>
+    <script src="/app.js" defer></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Lora&display=swap" rel="stylesheet" defer>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Averia+Libre&display=swap" rel="stylesheet" defer>
 </head>
 <body>
     <header>
         <h1 id="site-title"><a href="/index.html">anthonybeck.dev</a></h1>
         <a href="#" id="mobile-menu-button" onClick="toggleMobileMenu()">&#8801;</a>
-        <nav id="header-navbar">
+        <nav role="navigation" id="header-navbar">
             <a href="/index.html">home</a>
             <a href="/portfolio.html">portfolio</a>
             <a href="/blog.html">blog</a>
@@ -28,27 +28,38 @@
             <a href="/contact.html">contact</a>
         </nav>
     </header>
-    <main>
+    <main role="main">
         <section>
             <h1>About Me</h1>
             <p>I am currently a student at <b>CoderAcademy</b> Brisbane!</p>
+            <b>Business</b>
             <p>Aspiring software developer with a demonstrated knowledge of programming, database design, and a passion for making awesome software. Skilled in Laravel, PHP, Vue.js, SQL, Git, DevOps practices. Engineering professional with a Diploma focused in Software Development from TAFE Queensland. </p>
             <p><a href="/resume-web.pdf">Download my resume.</a></p>
+
             <h3>Work Experience</h3>
             <p>
                 <b>Headway Information Services</b> <br>
                 Headway Information Services is a Managed Services Provider where I have fulfilled several roles over the course of my employment. <br>
-                <span class="text-muted">2018-2020 &minus; <b>Lead Programmer</b></span> <br>
+                2018-2020 &minus; <b>Lead Programmer</b> <br>
                 Designed and developed business websites and ecommerce systems. <br>
                 Performed business analysis and interviews with end users to gather software project requirements and estimate timeframes. <br>
                 Took a lead role in the planning, design, and development of an enterprise resource planning system. <br>
-                <span class="text-muted">2017-2018 &minus; <b>Computer Technician</b></span> <br>
+                2017-2018 &minus; <b>Computer Technician</b> <br>
                 Troubleshooting and detecting hardware failures. <br>
                 Provided technical support for customers facing software issues. <br>
                 Streamlined internal invoicing system and processes. <br>
                 Deployed and configured remote workstation infrastructure. <br>
                 Greatly expanded our customer website and email hosting. <br>
             </p>
+
+            <h3>Personal</h3>
+            <figure class="figure-right">
+                <img src="/img/rinser.jpg" alt="Photo from Rinser show.">
+                <figcaption>Rinser, March 7th 2021</figcaption>
+            </figure>
+            <p>I love live music, here's a photo from the latest show I was at.</p>
+            <p>I also enjoy board games, movies, hiking. :)</p>
+
         </section>
     </main>
     <footer>
@@ -63,11 +74,11 @@
         </section>
         <section>
             <h4>Pages</h4>
-            <nav>
+            <nav role="navigation" id="footer-navbar">
                 <a href="/index.html">home</a>
                 <a href="/portfolio.html">portfolio</a>
                 <a href="/blog.html">blog</a>
-                <a href="/about.html">about me</a>
+                <a href="/about.html" class="active">about me</a>
                 <a href="/contact.html">contact</a>
             </nav>
         </section>

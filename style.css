@@ -1,7 +1,6 @@
 /*
- *
- *
- *
+ * T1A2 - Portfolio | Due Sun Mar 14, 2021 23:55 AEDT
+ * Author: Anthony Beck
  */
 * {
   box-sizing: border-box;
@@ -18,19 +17,19 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Lora", serif;
+  font-family: "Averia Libre", serif;
   font-weight: normal;
 }
 
 h1, h2, h3 {
-  color: #c0362c;
+  color: #dd4c44;
 }
 
 a {
-  color: #c0362c;
+  color: #dd4c44;
 }
 a:hover {
-  color: #da8a67;
+  color: #f4af8a;
 }
 
 header, main, footer {
@@ -69,14 +68,17 @@ header nav a {
   padding: 0.5em 1em;
 }
 header nav a.active {
-  color: #5a4fcf;
+  color: #7f77f7;
 }
 
 footer {
   flex-flow: column nowrap;
-  align-self: flex-end;
   justify-content: space-between;
+  align-self: flex-end;
   padding: 1em;
+}
+footer #footer-navbar a.active {
+  color: #7f77f7;
 }
 
 main {
@@ -88,17 +90,18 @@ main {
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-#site-title:hover {
-  animation: hue-cycle 0.67s linear infinite;
-}
-
 #front-image {
+  display: none;
   float: right;
   margin: 1em;
   border-radius: 8px;
   height: auto;
   width: auto;
   max-width: 33vw;
+}
+#front-image:hover {
+  animation: hue-cycle 5s ease-in-out infinite;
+  cursor: crosshair;
 }
 
 #portfolio-flex {
@@ -127,6 +130,17 @@ main {
   animation: grayscale-breathe 3s ease-in forwards, spin 0.4s linear infinite, hue-cycle 1s linear infinite;
 }
 
+.figure-right {
+  float: right;
+  margin: 1em;
+}
+.figure-right img {
+  border-radius: 8px;
+  height: auto;
+  width: auto;
+  max-width: 33vw;
+}
+
 .blog-image {
   margin: 1em;
   height: auto;
@@ -145,7 +159,10 @@ main {
   }
   header #mobile-menu-button {
     display: none;
-    border: 5px solid #0f0;
+  }
+
+  #front-image {
+    display: block;
   }
 }
 @media only screen and (min-width: 960px) {

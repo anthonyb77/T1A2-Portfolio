@@ -1,14 +1,13 @@
 /*
- *
- *
- *
+ * T1A2 - Portfolio | Due Sun Mar 14, 2021 23:55 AEDT
+ * Author: Anthony Beck
  */
 
 // variables
 // theme colors
-$color-primary: #c0362c;
-$color-secondary: #da8a67;
-$color-accent: #5a4fcf;
+$color-primary: #dd4c44; // #c0362c;
+$color-secondary: #f4af8a;
+$color-accent: #7f77f7;
 $color-dark: #232527;
 $color-light: #f8f8ff;
 $color-on-dark: #f8f8ff;
@@ -23,7 +22,7 @@ $breakpoint-tablet: 600px;
 $breakpoint-mobile: 400px;
 
 // fonts
-$font-heading: "Lora", serif;
+$font-heading: "Averia Libre", serif;
 $font-body: "Quicksand", sans-serif;
 
 * {
@@ -131,7 +130,12 @@ footer {
     // place at the bottom of the page in the parent flex container.
     align-self: flex-end;
 
-    padding: 1em
+    padding: 1em;
+
+    // active link on footer navbar like header navbar.
+    #footer-navbar a.active {
+        color: $color-accent;
+    }
 }
 
 main {
@@ -153,11 +157,15 @@ main {
 
 #site-title:hover {
     // just for fun.
-    animation: hue-cycle .67s linear infinite;
+    // animation: hue-cycle .5s linear infinite;
 }
 
 // basically random image on the frontpage.
 #front-image {
+    // hide on mobile.
+    display: none;
+
+    // right align.
     float: right;
 
     // some spacing and rounded corners.
@@ -168,6 +176,12 @@ main {
     height: auto;
     width: auto;
     max-width: 33vw;
+
+    // i like hover animations :)
+    &:hover {
+        animation: hue-cycle 5s ease-in-out infinite;
+        cursor: crosshair;
+    }
 }
 
 // page specific
@@ -208,6 +222,22 @@ main {
     }
 }
 
+.figure-right {
+    float: right;
+
+    // some spacing.
+    margin: 1em;
+
+    img {
+        border-radius: 8px;
+
+        // responsive sizing.
+        height: auto;
+        width: auto;
+        max-width: 33vw;
+    }
+}
+
 .blog-image {
     // spacing from other elements and text.
     margin: 1em;
@@ -241,8 +271,12 @@ main {
         // hide the hamburger button on large screens.
         #mobile-menu-button {
             display: none;
-            border: 5px solid #0f0;
         }
+    }
+
+    // show that front page image.
+    #front-image {
+        display: block;
     }
 }
 
