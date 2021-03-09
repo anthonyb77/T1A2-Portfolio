@@ -15,7 +15,7 @@ $color-on-dark: #f8f8ff;
 $color-on-light: #333;
 
 // maximum width of content container
-$container-max-width: 960px;
+$container-max-width: 920px;
 
 // responsive breakpoints
 $breakpoint-desktop: 960px;
@@ -124,9 +124,12 @@ header {
 }
 
 footer {
+    // flex footer, stacked column in mobile and a row on larger screens.
     flex-flow: column nowrap;
-    align-self: flex-end;
     justify-content: space-between;
+
+    // place at the bottom of the page in the parent flex container.
+    align-self: flex-end;
 
     padding: 1em
 }
@@ -139,9 +142,12 @@ main {
     max-width: $container-max-width;
     margin: auto;
 
+    // contrasting colours with header and footer.
     background-color: $color-light;
 
     padding: 1em 2em;
+
+    // subtle box-shadow to focus content.
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -150,12 +156,28 @@ main {
     animation: hue-cycle .67s linear infinite;
 }
 
+// basically random image on the frontpage.
+#front-image {
+    float: right;
+
+    // some spacing and rounded corners.
+    margin: 1em;
+    border-radius: 8px;
+
+    // responsive sizing.
+    height: auto;
+    width: auto;
+    max-width: 33vw;
+}
+
 // page specific
 // portfolio
 #portfolio-flex {
+    // flex container for skills and projects columns.
     display: flex;
     flex-flow: row wrap;
 
+    // mobile first design these are 100% to wrap into columns.
     #portfolio-projects {
         width: 100%;
     }
@@ -163,6 +185,7 @@ main {
         width: 100%;
 
         #skill-icon-grid {
+            // place the icons in a grid, 3x? in this case 3x3
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1em;
@@ -170,8 +193,10 @@ main {
                 text-align: center;
                 font-size: 5em;
 
+                // grayscale the icons to begin. ease-in the colour. stay at the end of the animation.
                 filter: grayscale(1);
                 animation: grayscale-breathe 1s ease-in forwards;
+                // slight delay so the user has time to notice the fade.
                 animation-delay: .6s;
             }
 
@@ -187,6 +212,7 @@ main {
     // spacing from other elements and text.
     margin: 1em;
 
+    // responsive sizing.
     height: auto;
     width: auto;
     max-width: 33vw;
@@ -201,8 +227,10 @@ main {
 // tablet and desktop only.
 @media only screen and (min-width: $breakpoint-tablet) {
     header {
+        // better spacing on larger screens.
         justify-content: space-around;
 
+        // display the nav in a row bar.
         nav {
             display: flex;
             flex-flow: row nowrap;
@@ -210,6 +238,7 @@ main {
             width: auto;
         }
 
+        // hide the hamburger button on large screens.
         #mobile-menu-button {
             display: none;
             border: 5px solid #0f0;
@@ -219,12 +248,14 @@ main {
 
 // desktop only.
 @media only screen and (min-width: $breakpoint-desktop) {
+    // portfolio skills and projects are now two columns.
     #portfolio-flex  {
         #portfolio-skills, #portfolio-projects {
             width: 50%;
         }
     }
 
+    // footer elements are now two columns.
     footer {
         justify-content: center;
         flex-flow: row nowrap;
@@ -232,6 +263,7 @@ main {
         section {
             padding: 0 2em;
             &:first-child {
+                // dividing line between the two sections.
                 border-right: 2px solid $color-on-dark;
             }
         }
