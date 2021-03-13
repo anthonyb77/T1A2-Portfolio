@@ -14,17 +14,17 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Averia+Libre&display=swap" rel="stylesheet" defer>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Averia+Libre&display=swap" rel="stylesheet">
 </head>
 <body>
     <header><!-- Header has the site title and main navigation, the navigation is hidden behind a button on mobile. -->
-        <a href="/index.html">
-            <h1 id="site-title">
+        <h1 id="site-title">
+            <a href="/index.html">
                 anthonybeck.dev
-            </h1>
-        </a>
+            </a>
+        </h1>
         <a href="#" id="mobile-menu-button" onClick="toggleMobileMenu()">&#8801;</a><!-- Mobile navigation toggle button -->
-        <nav role="navigation" id="header-navbar"><!-- Main navigation. -->
+        <nav id="header-navbar"><!-- Main navigation. -->
             <a href="/index.html" class="active">home</a>
             <a href="/portfolio.html">portfolio</a>
             <a href="/blog.html">blog</a>
@@ -32,19 +32,19 @@
             <a href="/contact.html">contact</a>
         </nav>
     </header>
-    <main role="main"><!-- Main page content container. -->
+    <main><!-- Main page content container. -->
         <section>
             <!-- Just a neat image. -->
-            <img src="/img/unsplash.jpg" alt="Frontpage Image" id="front-image">
+            <img src="/img/unsplash.jpg" alt="Frontpage sample image from unsplash" id="front-image">
             <!-- Simple introduction. -->
-            <h1>
+            <h2>
                 Hi, my name is <b>Anthony</b>
                 <br>
                 I am a Software Developer
-            </h1>
+            </h2>
         </section>
         <section>
-            <h3>Currently I am a student at <b>CoderAcademy</b> in Brisbane, Australia.</h3>
+            <h2>Currently I am a student at <b>CoderAcademy</b> in Brisbane, Australia.</h2>
             <p>Previously I have worked with PHP7+, Laravel, SQL, Python, HTML & CSS.</p>
             <p>Take a look at some of the <a href="/portfolio.html">things I've made</a>, see posts on my <a href="/blog.html">blog</a>, or <a href="/about.html">read more about me.</a></p>
         </section>
@@ -64,7 +64,7 @@
         </section>
         <section>
             <h4>Pages</h4>
-            <nav role="navigation" id="footer-navbar"><!-- Navigation at the bottom of the page. -->
+            <nav id="footer-navbar"><!-- Navigation at the bottom of the page. -->
                 <a href="/index.html" class="active">home</a>
                 <a href="/portfolio.html">portfolio</a>
                 <a href="/blog.html">blog</a>

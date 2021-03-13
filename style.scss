@@ -5,9 +5,9 @@
 
 // variables
 // theme colors
-$color-primary: #dd4c44; // #c0362c;
+$color-primary: #cc2d00; // #c0362c;
 $color-secondary: #f4af8a;
-$color-accent: #7f77f7;
+$color-accent: #9f97f9;
 $color-dark: #232527;
 $color-light: #f8f8ff;
 $color-on-dark: #f8f8ff;
@@ -60,7 +60,7 @@ h1, h2, h3 {
 
 // change link style and hover color.
 a {
-    color: $color-primary;
+    color: darken($color-primary, 10%);
     &:hover {
         color: $color-secondary;
     }
@@ -114,6 +114,8 @@ header {
             font-size: 1.2em;
             padding: 0.5em 1em;
 
+            color: lighten($color-primary, 20%);
+
             // link of the current page are highlighted.
             &.active {
                 color: $color-accent;
@@ -133,8 +135,11 @@ footer {
     padding: 1em;
 
     // active link on footer navbar like header navbar.
-    #footer-navbar a.active {
-        color: $color-accent;
+    a {
+        color: lighten($color-primary, 20%);
+        &.active {
+            color: $color-accent;
+        }
     }
 }
 
@@ -155,9 +160,18 @@ main {
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-#site-title:hover {
-    // just for fun.
-    animation: hue-cycle .5s linear infinite;
+// main title in navbar, anthonybeck.dev
+#site-title {
+    a {
+        // want this to be light.
+        color: $color-on-dark;
+        text-decoration: none;
+        &:hover {
+            // just for fun.
+            color: $color-secondary;
+            animation: hue-cycle 1s infinite;
+        }
+    }
 }
 
 // basically random image on the frontpage.
@@ -222,6 +236,16 @@ main {
     }
 }
 
+// image alignment classes.
+.image-right {
+    float: right;
+}
+
+.image-left {
+    float: left;
+}
+
+// figure alignment.
 .figure-right {
     float: right;
 
@@ -249,10 +273,6 @@ main {
 }
 
 // media queries
-// tablet only.
-@media only screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
-
-}
 
 // tablet and desktop only.
 @media only screen and (min-width: $breakpoint-tablet) {
