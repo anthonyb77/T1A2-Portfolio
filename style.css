@@ -2,6 +2,10 @@
  * T1A2 - Portfolio | Due Sun Mar 14, 2021 23:55 AEDT
  * Author: Anthony Beck
  */
+@font-face {
+  font-family: "Devicon";
+  src: url(/devicon.ttf) format("truetype");
+}
 * {
   box-sizing: border-box;
 }

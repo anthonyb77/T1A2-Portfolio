@@ -25,6 +25,12 @@ $breakpoint-mobile: 400px;
 $font-heading: "Averia Libre", serif;
 $font-body: "Quicksand", sans-serif;
 
+// devicon font include.
+@font-face {
+    font-family: "Devicon";
+    src: url(/devicon.ttf) format("truetype");
+}
+
 * {
     // consistency of sizing.
     box-sizing: border-box;
